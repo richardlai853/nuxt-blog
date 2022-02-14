@@ -21,7 +21,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    'balm-ui/dist/balm-ui.css'
+    'balm-ui/dist/balm-ui.css',
+    '@/assets/css/main.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -35,6 +36,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/typescript
+    '@nuxt/postcss8',
     '@nuxt/typescript-build',
   ],
 
@@ -45,5 +47,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    postcss: { plugins: { tailwindcss: {}, autoprefixer: {}, }, },
+  },
+
+  content: {
+    nestedProperties: ['author.name']
   }
 }
