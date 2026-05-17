@@ -1,75 +1,57 @@
-# Nuxt Content Starter
+# Nuxt Blog
 
-Look at the [Nuxt Content documentation](https://content.nuxt.com) to learn more.
+A content-driven blog application powered by Nuxt 4 and Nuxt Content.
+
+## Implemented foundation
+
+- Content collections for static pages and blog posts
+- Frontmatter schema for posts (`title`, `description`, `date`, `tags`, `draft`)
+- Public pages:
+  - `/` home
+  - `/posts` list with search + tag filtering
+  - `/posts/[slug]` post detail with table of contents and related posts
+  - `/tags/[tag]` posts by tag
+  - `/admin` publishing workflow placeholder
+- SEO defaults and canonical URLs
+- `robots.txt`, `/sitemap.xml`, and `/rss.xml`
+- Optional analytics script via `NUXT_PUBLIC_ANALYTICS_ID`
 
 ## Setup
 
-Make sure to install dependencies:
-
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## Development
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
-Build the application for production:
+## Build
 
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+## Generate static output
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+npm run generate
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Content authoring
+
+Add markdown files under `/content/posts` using this frontmatter:
+
+```md
+---
+title: Post title
+description: Short summary
+date: 2026-05-01
+tags:
+  - nuxt
+  - content
+draft: false
+---
+```

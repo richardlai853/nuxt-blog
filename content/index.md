@@ -1,24 +1,15 @@
-# Welcome to Nuxt Content Starter
+---
+title: Welcome to Nuxt Blog
+description: A content-first blog starter built with Nuxt Content.
+---
 
-This is the main page displaying Markdown located at [content/index.md](https://github.com/nuxt/starter/blob/content/content/index.md).
+# Welcome to Nuxt Blog
 
-Move to [about](/about) page.
+This project ships with an implementation-ready blog foundation:
 
-## Manage your Contents
+- Post schema and markdown authoring
+- Posts, tags, and search views
+- Related posts and reading-time metadata
+- SEO metadata, sitemap, robots, and RSS feed
 
-Create new pages or modify the existing ones in `content/` directory.
-
-## Query & Render Pages
-
-You can find an example of querying contents and rendering them in a [catch-all page](https://github.com/nuxt/starter/blob/content/app/pages/%5B...slug%5D.vue)
-
-## Integrate Vue Component
-
-::alert{color="green"}
-The current [alert](https://github.com/nuxt/starter/blob/content/app/components/Alert.vue) and the [counter](https://github.com/nuxt/starter/blob/content/app/components/Counter.vue) below are `Vue` components integrated into the Markdown.
-::
-
-::counter
-::
-
-Checkout out the [documentation](https://content.nuxt.com/docs/getting-started) to learn more.
+Start with [all posts](/posts) or read [about](/about).
