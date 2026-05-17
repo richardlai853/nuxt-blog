@@ -1,13 +1,5 @@
 import { queryCollection } from '@nuxt/content/server'
-
-function escapeXml(value: string) {
-  return value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;')
-}
+import { escapeXml } from '../utils/xml'
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event)
