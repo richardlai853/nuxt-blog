@@ -29,8 +29,21 @@ const signIn = async () => {
 
     await navigateTo('/admin')
   }
-  catch {
-    errorMessage.value = 'Invalid username or password.'
+  catch (error: unknown) {
+    const statusCode = (error as { statusCode?: number, response?: { status?: number } })?.statusCode
+      ?? (error as { response?: { status?: number } })?.response?.status
+
+    if (statusCode === 401) {
+      errorMessage.value = 'Invalid username or password.'
+      return
+    }
+
+    if (statusCode === 500) {
+      errorMessage.value = 'Sign in is temporarily unavailable. Please try again later.'
+      return
+    }
+
+    errorMessage.value = 'Unable to sign in right now. Please try again.'
   }
   finally {
     pending.value = false

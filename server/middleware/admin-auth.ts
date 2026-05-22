@@ -9,9 +9,11 @@ export default defineEventHandler(async (event) => {
     return
   }
 
-  const isLoginPath = pathname === '/admin/login' || pathname === '/api/admin/login'
+  const isPublicAdminPath = pathname === '/admin/login'
+    || pathname === '/api/admin/login'
+    || pathname === '/api/admin/logout'
 
-  if (isLoginPath) {
+  if (isPublicAdminPath) {
     return
   }
 

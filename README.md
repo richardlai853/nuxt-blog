@@ -51,6 +51,8 @@ NUXT_ADMIN_PASSWORD=change-me
 NUXT_ADMIN_SESSION_SECRET=replace-with-a-long-random-secret
 ```
 
+`NUXT_ADMIN_SESSION_SECRET` must be explicitly set in production.
+
 Then use:
 
 - `/admin/login` to sign in

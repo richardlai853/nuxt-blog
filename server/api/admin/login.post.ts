@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
   if (!isAdminAuthConfigured(event)) {
     throw createError({
       statusCode: 500,
-      statusMessage: 'Admin auth is not configured',
+      statusMessage: 'Authentication service unavailable',
     })
   }
 

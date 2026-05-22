@@ -20,7 +20,8 @@ const signOut = async () => {
     await $fetch('/api/admin/logout', { method: 'POST' })
     await navigateTo('/admin/login')
   }
-  catch {
+  catch (error) {
+    console.error(error)
     errorMessage.value = 'Unable to sign out. Please try again.'
   }
   finally {

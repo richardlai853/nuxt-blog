@@ -1,4 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { randomBytes } from 'node:crypto'
+
+const developmentAdminSessionSecret = randomBytes(32).toString('hex')
+
+if (
+  process.env.NODE_ENV === 'production'
+  && (process.env.NUXT_ADMIN_USER || process.env.NUXT_ADMIN_PASSWORD)
+  && !process.env.NUXT_ADMIN_SESSION_SECRET
+) {
+  throw new Error('NUXT_ADMIN_SESSION_SECRET must be set in production')
+}
+
 export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
@@ -12,7 +24,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     adminUser: process.env.NUXT_ADMIN_USER || '',
     adminPassword: process.env.NUXT_ADMIN_PASSWORD || '',
-    adminSessionSecret: process.env.NUXT_ADMIN_SESSION_SECRET || 'dev-admin-session-secret-change-me',
+    adminSessionSecret: process.env.NUXT_ADMIN_SESSION_SECRET || developmentAdminSessionSecret,
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
       siteName: process.env.NUXT_PUBLIC_SITE_NAME || 'Nuxt Blog',
